@@ -1,8 +1,6 @@
 package com.syntax.utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -18,12 +16,13 @@ public class BaseClass {
 	public static void setUp() {
 		initProperties(Constants.filePath);
 		String browserName = prop.getProperty("browser");
+	
 
 		if (browserName.equalsIgnoreCase("chrome")) {
 			if (Constants.osName.contains("Mac")) {
-				System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+				System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver");
 			} else if (Constants.osName.contains("Windows")) {
-				System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Drivers\\chromedriver.exe");
 			}
 			driver = new ChromeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {

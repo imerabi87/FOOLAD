@@ -33,4 +33,11 @@ public class LoginPageSteps {
 	public void i_successfully_logged_in() {
 
 	}
+
+	@Then("^I see error message \"([^\"]*)\"$")
+	public void i_see_error_message(String errormessage) {
+		String errorMsg = login.errorMessage.getText();
+		Assert.assertEquals(errorMsg, errormessage);
+
+	}
 }
