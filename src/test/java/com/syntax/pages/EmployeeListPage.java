@@ -44,6 +44,9 @@ public class EmployeeListPage extends BaseClass {
 	@FindBy(xpath="//*[@id='btnDelete']")
 	public WebElement delete;
 	
+	@FindBy(id="dialogDeleteBtn")
+	public WebElement okbtn;
+	
 	public EmployeeListPage() {
 		PageFactory.initElements(driver, this);
 	}

@@ -21,10 +21,11 @@ public class CommonMethods extends BaseClass {
 		WebElement elm = waiting(element);
 		elm.click();
 	}
-public static void DropDown(WebElement DD,String value) {
-        
-        Select select=new Select(DD);
-        select.selectByVisibleText(value);
 
-    }
+	public static void DropDown(WebElement DD, String value) {
+
+		Select select = new Select(DD);
+		select.selectByVisibleText(value);
+
+	}
 }

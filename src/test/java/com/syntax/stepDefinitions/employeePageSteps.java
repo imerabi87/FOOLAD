@@ -37,8 +37,8 @@ public class employeePageSteps {
 
 	@And("^I clicked on PIM$")
 	public void i_clicked_on_PIM() {
-		addEmp = new AddEmployeePage();
-		empList = new EmployeeListPage();
+//		addEmp = new AddEmployeePage();
+//		empList = new EmployeeListPage();
 		CommonMethods.click(addEmp.pimlink);
 
 	}
@@ -93,9 +93,8 @@ public class employeePageSteps {
 
 					}
 					cell.click();
-					Thread.sleep(6000);
+					Thread.sleep(3000);
 					break;
-
 				}
 			}
 		}
@@ -103,37 +102,37 @@ public class employeePageSteps {
 
 	@Then("^I navigated to the employee profile$")
 	public void i_navigated_to_the_employee_profile() {
-
 		CommonMethods.click(empList.edit);
 	}
 
 	@Then("^I can edit Employee information$")
 	public void i_can_edit_Employee_information() {
-
 		CommonMethods.click(empList.gender);
 		CommonMethods.DropDown(empList.nationality, "Afghan");
 		CommonMethods.click(empList.saveEdit);
+	
 	}
 
 	@When("^I search for an added employee \"([^\"]*)\" to delete$")
 	public void i_search_for_an_added_employee_to_delete(String name) throws Throwable {
-
 		List<WebElement> rows = empList.Table;
 
 		for (int i = 1; i <= rows.size(); i++) {
+
 			String rowdata = rows.get(i).getText();
-			System.out.println(rowdata);
 			if (rowdata.contains(name)) {
-				List<WebElement> checkBox = rows.get(i).findElements(By.tagName("td"));
-
-				for (WebElement cell : checkBox) {
-
+				List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+				for (WebElement cell : cells) {
+					cell.getText();
 					if (cell.getText().contains(name)) {
-						cell.click();
-						Thread.sleep(2000);
-						break;
 					}
-
+					cell.click();
+					Thread.sleep(3000);
+					CommonMethods.click(empList.delete);
+					Thread.sleep(3000);
+					CommonMethods.click(empList.okbtn);
+					Thread.sleep(3000);
+					break;
 				}
 			}
 		}
@@ -142,7 +141,7 @@ public class employeePageSteps {
 	@Then("^I should be able to delete that employee$")
 	public void i_should_be_able_to_delete_that_employee() {
 
-		CommonMethods.click(empList.delete);
+		System.out.println("The employee is ben deleted.");
 	}
 
 }
