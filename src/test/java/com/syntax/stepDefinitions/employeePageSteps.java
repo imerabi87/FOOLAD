@@ -39,6 +39,7 @@ public class employeePageSteps {
 	public void i_clicked_on_PIM() {
 //		addEmp = new AddEmployeePage();
 //		empList = new EmployeeListPage();
+		addEmp = new AddEmployeePage();
 		CommonMethods.click(addEmp.pimlink);
 
 	}
@@ -74,6 +75,7 @@ public class employeePageSteps {
 	@When("^I navigated to the Employee List Page$")
 	public void i_navigated_to_the_Employee_List_Page() throws InterruptedException {
 
+		empList = new EmployeeListPage();
 		CommonMethods.click(empList.EmployeeList);
 
 	}
@@ -110,14 +112,14 @@ public class employeePageSteps {
 		CommonMethods.click(empList.gender);
 		CommonMethods.DropDown(empList.nationality, "Afghan");
 		CommonMethods.click(empList.saveEdit);
-	
+
 	}
 
 	@When("^I search for an added employee \"([^\"]*)\" to delete$")
 	public void i_search_for_an_added_employee_to_delete(String name) throws Throwable {
 		List<WebElement> rows = empList.Table;
 
-		for (int i = 1; i <= rows.size(); i++) {
+		for (int i = 1; i < rows.size(); i++) {
 
 			String rowdata = rows.get(i).getText();
 			if (rowdata.contains(name)) {

@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features= {"src/test/resources/features"}
 				, glue= {"com/syntax/stepDefinitions"}
-                //, tags= {"@delete"}
+                , tags= {" @smoke, @Regression"}
 				, dryRun=false
 				, plugin = {"pretty", "html: test-output"}
 				,monochrome= true

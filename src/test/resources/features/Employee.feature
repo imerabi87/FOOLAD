@@ -1,4 +1,4 @@
-#Author: SyntaxTeam
+#Author: Abraham
 Feature: US 121335 - As an admin, I should have the ability to add, modify and delete an employee.
 
   Background: 
@@ -6,13 +6,13 @@ Feature: US 121335 - As an admin, I should have the ability to add, modify and d
     And I clicked on PIM
     
 
-  #@smoke
+  @smoke
   Scenario: add employee
     When I navigated to the Add Employee Page
     When I provide the first name "mark" , middle name "balooch" and last name "kamal" of the employee
     Then I successfully added an employee
 
-  #@smoke
+  @Regression
   Scenario: edit employee
     And I navigated to the Employee List Page
     When I search for an added employee "mark"
@@ -20,7 +20,7 @@ Feature: US 121335 - As an admin, I should have the ability to add, modify and d
     Then I navigated to the employee profile
     And I can edit Employee information
 
-  @delete
+  @Regression
   Scenario: delete employee
     And I navigated to the Employee List Page
     When I search for an added employee "mark" to delete

@@ -4,12 +4,12 @@ Feature: Login feature
 
   Background: 
     Given OrangeHRM logo is displayed
-#@smoke
+@smoke
   Scenario: Valid login
     When I enter "admin" and "admin123"
     And I click on login button
     Then I successfully logged in
-#@Regression
+@Regression
   Scenario Outline: Invalid login
     When I enter "<username>" and "<password>"
     And I click on login button

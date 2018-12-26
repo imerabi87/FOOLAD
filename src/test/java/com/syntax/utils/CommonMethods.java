@@ -10,6 +10,7 @@ public class CommonMethods extends BaseClass {
 	public static void enterValue(WebElement element, String value) {
 		element.clear();
 		element.sendKeys(value);
+		
 	}
 
 	public static WebElement waiting(WebElement element) {
@@ -18,9 +19,10 @@ public class CommonMethods extends BaseClass {
 	}
 
 	public static void click(WebElement element) {
-		WebElement elm = waiting(element);
-		elm.click();
+		element.click();
 	}
+	
+	
 
 	public static void DropDown(WebElement DD, String value) {
 
@@ -28,4 +30,8 @@ public class CommonMethods extends BaseClass {
 		select.selectByVisibleText(value);
 
 	}
+
+	
+
+	 
 }
