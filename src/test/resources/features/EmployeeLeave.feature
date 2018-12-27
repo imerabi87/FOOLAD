@@ -23,17 +23,14 @@ Feature: US 121337 - EPIC STORY--As an admin, I should have the ability to add E
     And I Enter "50" Entitlement
     Then I Confirm that all default employees have new Entitlements added for Paternity US
 
-   @Regression
+  @Regression
   Scenario: Scenario three
     And click Assign Leave
     And I enter any one of the default employee names "rob"
     And I select "FMLA US"
     Then Balance of 50 should be present for employee
     And I select From Date "Mar" and "2018" and "27"
-     And I select To Date "May" and "2018" and "10" it should not exceed morethan fifty days.
+    And I select To Date "May" and "2018" and "10" it should not exceed morethan fifty days.
     Then I should see that the leave balance has changed based on how many days that was taken
-    
-    
-    
-    
-    
+
+ 
