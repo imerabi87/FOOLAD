@@ -6,7 +6,7 @@ Feature: Login feature
     Given OrangeHRM logo is displayed
 @smoke
   Scenario: Valid login
-    When I enter "admin" and "admin123"
+    When I enter "aadmin" and "admin123"
     And I click on login button
     Then I successfully logged in
 @Regression
